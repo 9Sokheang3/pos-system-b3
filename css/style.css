@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+    background: teal;
+}
+h5{
+    margin: 0 20px;
+    color: white;
+}
+
+#allcategory {
+    display: flex;
+}
+
+#product_stock {
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 30px;
+}
+
+.show {
+    padding: 10px 40px;
+    border: 1px solid #000;
+}
+
+h2 {
+    color: orangered;
+}
