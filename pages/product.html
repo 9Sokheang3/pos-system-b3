@@ -7,6 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="../css/stylepro.css">
     <script src="../js/product.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 
 <body>
@@ -20,15 +21,57 @@
         </ul>
     </nav>
     <form>
-        <label for="phone">Choose the phone model:</label>
-        <select name="phone" id="phone">
-            <option value="">All model</option>
-            <option value="">Iphone</option>
-            <option value="">Samsung</option>
-            <option value="">Vivo</option>
-            <option value="">Oppo</option>
-        </select>
+        <div>
+            <label for="phone">Choose the phone model:</label>
+            <select name="phone" id="phone">
+                <option value="">All model</option>
+                <option value="">Iphone</option>
+                <option value="">Samsung</option>
+                <option value="">Vivo</option>
+                <option value="">Oppo</option>
+            </select>
+        </div>
+        <input type="text" id="searchPhone" value="" placeholder="Search phone">
     </form>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Product name</th>
+            <th>Price</th>
+            <th>Action</th>
+        </tr>
+        <tr>
+            <td>001</td>
+            <td>_____________</td>
+            <td>___$</td>
+            <td>
+                <button><i class="material-icons btnDelete">delete</i></button>
+                <button><i class="material-icons btnEdit">edit</i></button>
+                <button><i class="material-icons">visibility</i></button>
+            </td>
+        </tr>
+        <tr>
+            <td>002</td>
+            <td>_____________</td>
+            <td>___$</td>
+            <td>
+                <button><i class="material-icons btnDelete">delete</i></button>
+                <button><i class="material-icons btnEdit">edit</i></button>
+                <button><i class="material-icons">visibility</i></button>
+            </td>
+        </tr>
+        <tr>
+            <td>003</td>
+            <td>_____________</td>
+            <td>___$</td>
+            <td>
+                <button><i class="material-icons btnDelete">delete</i></button>
+                <button><i class="material-icons btnEdit">edit</i></button>
+                <button><i class="material-icons">visibility</i></button>
+            </td>
+        </tr>
+    </table>
+    <button class="addPhone">Add phone</button>
 </body>
 
 </html>
