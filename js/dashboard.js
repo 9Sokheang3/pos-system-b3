@@ -1,2 +1,2 @@
-let h3 = document.querySelectorAll('h3')
+let h2 = document.querySelectorAll('h2')
 console.log(h3);
