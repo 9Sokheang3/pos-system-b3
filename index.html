@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/main.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="js/dashboard.js" defer></script>
 </head>
+
 <body>
     <nav>
         <h1>B3-PHONE SHOP</h1>
@@ -17,49 +20,50 @@
             <li><a href="#"></a>Order</li>
         </ul>
     </nav>
-  <main>
-    <div id="product_stock">
-        <div id="pro">
-            <p>In stock</p>
-            <div class="show">
-                <h2>00</h2>
+    <main>
+        <div id="product_stock">
+            <div id="pro">
+                <p>In stock</p>
+                <div class="show">
+                    <h2 id="stock">00</h2>
+                </div>
+            </div>
+            <div id="pro">
+                <p>Cotegory</p>
+                <div class="show">
+                    <h2 id="stock">00</h2>
+                </div>
+            </div>
+            <div id="pro">
+                <p>Sold out</p>
+                <div class="show">
+                    <h2 id="stock">00</h2>
+                </div>
+            </div>
+            <div id="pro">
+                <p>Income</p>
+                <div class="show">
+                    <h2 id="stock">000</h2>
+                </div>
             </div>
         </div>
-        <div id="pro">
-            <p>Cotegory</p>
-            <div class="show">
-                <h2>00</h2>
-            </div>
+        <div id="viewproduct">
+            <h3>Top sold product</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <td>Product-id</td>
+                        <td>Product Name</td>
+                        <td>Categories</td>
+                        <td>Product-Price</td>
+                        <td>Amcount</td>
+                        <td>Sell progress</td>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
         </div>
-        <div id="pro">
-            <p>Sold out</p>
-            <div class="show">
-                <h2>00</h2>
-            </div>
-        </div>
-        <div id="pro">
-            <p>Income</p>
-            <div class="show">
-                <h2>000</h2>
-            </div>
-        </div>
-    </div>
-    <div id="viewproduct">
-        <h3>Top 5 sold product</h3>
-        <table>
-            <thead>
-                <tr>
-                    <td>Product-id</td>
-                    <td>Product Name</td>
-                    <td>Categories</td>
-                    <td>Product-Price</td>
-                    <td>Amcout</td>
-                    <td>Sell progress</td>
-                </tr>
-            </thead>
-            <tbody></tbody>
-        </table>
-    </div>
-  </main>
+    </main>
 </body>
+
 </html>

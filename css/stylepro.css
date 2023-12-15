@@ -1,17 +1,25 @@
+
+
+
+
+
 *{
     margin: 0;
     padding: 0;
     font-family: sans-serif;
-    color: white;
+}
+body{
+    background-color: #d4d4d4;
 }
 nav{
     background-color: teal;
+    color: white;
     padding: 20px;
     display: flex;
     justify-content: space-between;
 }
 nav>ul{
-    width: 50%;
+    width: 40%;
     list-style: none;
     display: flex;
     justify-content: space-evenly;
@@ -24,4 +32,60 @@ nav>ul>li{
 }
 nav>ul>li:hover{
     background-color: rgb(183, 73, 0);
+}
+form{
+    margin: auto;
+    width: 80%;
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+select{
+    width: 150px;
+    height: 40px;
+}
+#searchPhone{
+    width: 300px;
+}
+table{
+    width: 80%;
+    margin: auto;
+    margin-top: 40px;
+}
+th{
+    background-color: teal;
+    color: white;
+}
+td{
+    background-color: #fff;
+}
+table, th, td {
+    height: 30px;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+button{
+    border: none;
+}
+button>i{
+    cursor: pointer;
+}
+.btnDelete{
+    color: red;
+}
+.btnEdit{
+    color: blue;
+}
+.addPhone{
+    width: 150px;
+    margin-left: 10%;
+    margin-top: 25px;
+    background-color: teal;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    font-weight: bolder;
+}
+.addPhone:hover{
+    background-color: rgb(0, 87, 87);
 }

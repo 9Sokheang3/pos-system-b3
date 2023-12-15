@@ -55,9 +55,10 @@ main {
 .show {
     width: 180px;
     height: 40px;
-    border: 1px solid orangered;
+    border: 2px solid white;
     text-align: center;
     padding-top: 10px;
+    color: orangered;
 }
 
 p{
@@ -79,3 +80,7 @@ th {
     border: 1px solid #ccc;
     padding: 10px;
 }
+
+/* .hidden1,.hidden2{
+    display: none;
+} */
