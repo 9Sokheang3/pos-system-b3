@@ -35,52 +35,74 @@ form{
     display: flex;
     justify-content: space-between;
 }
+label{
+    width: 50%;
+
+}
+.select_model{
+    width: 50%;
+    display: flex;
+    align-items: center;
+}
 select{
-    width: 150px;
-    height: 40px;
+    width: 50%;
+    height: 35px;
 }
 #searchPhone{
     width: 300px;
+    height: 25px;
 }
-table{
-    width: 80%;
-    margin: auto;
-    margin-top: 40px;
+.container {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 40px; 
+    display: flex;
+    justify-content: space-between;
 }
-th{
-    background-color: teal;
-    color: white;
+.left-box {
+    flex:1;
+    border-right: 1px solid #ccc;
 }
-td{
-    background-color: #fff;
+.form-group {
+    padding: 10px;
 }
-table, th, td {
-    height: 30px;
-    border: 1px solid black;
+input[type='text'],
+input[type='number'],
+select,
+textarea {
+    width: 90%;
+    padding: 10px;
+}
+select{
+    width: 97%;
+}
+button {
+    width: 100%;
+    padding: 10px;
+    cursor: pointer;
+    border: none;
+    background: teal;
+    font-size: 16px;
+    color: #fff;
+    text-transform: uppercase;
+}
+.user {
+    display: flex;
+    gap: 10px;
+}
+.right-box {
+    flex:2;
+}
+table {
+    width: 100%;
     border-collapse: collapse;
 }
-button{
-    border: none;
+thead {
+    background: teal;
+    color: #fff;
 }
-button>i{
-    cursor: pointer;
-}
-.btnDelete{
-    color: red;
-}
-.btnEdit{
-    color: blue;
-}
-.addPhone{
-    width: 150px;
-    margin-left: 10%;
-    margin-top: 25px;
-    background-color: teal;
-    color: white;
-    padding: 20px;
-    border-radius: 10px;
-    font-weight: bolder;
-}
-.addPhone:hover{
-    background-color: rgb(0, 87, 87);
+
+td, th {
+    border: 1px solid #ddd;
+    padding: 8px;
 }
