@@ -59,6 +59,7 @@ main {
     text-align: center;
     padding-top: 10px;
     color: orangered;
+    border-radius: 5px;
 }
 
 p{
@@ -80,7 +81,3 @@ th {
     border: 1px solid #ccc;
     padding: 10px;
 }
-
-/* .hidden1,.hidden2{
-    display: none;
-} */
