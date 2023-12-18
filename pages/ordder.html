@@ -1,13 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../css/styleorder.css">
-    <script src="../js/order.js"></script>
+    <script src="../js/order.js" defer></script>
 </head>
+
 <body>
-    
+    <nav>
+        <h1>B3-PHONE SHOP</h1>
+        <ul>
+            <li><a href="../index.html"></a>Dashboard</li>
+            <li><a href="pages/product.html"></a>Products</li>
+            <li><a href="#"></a>Categories</li>
+            <li><a href="pages/ordder.html"></a>Order</li>
+        </ul>
+    </nav>
+    <main>
+        <div class="main-left">
+            <input type="text" placeholder="Product Name" id="product-name"><br>
+            <input type="number" placeholder="Quantity" id="qty"><br>
+            <input type="number" placeholder="Price" id="price"><br>
+            <button>Add Product</button>
+        </div>
+        <div class="main-right">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Quantity</th>
+                        <th>Unit Price</th>
+                        <th>Total Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </main>
+    <div>
+        <h1><span>Total: </span><span class="total">0</span></h1>
+    </div>
 </body>
 </html>
