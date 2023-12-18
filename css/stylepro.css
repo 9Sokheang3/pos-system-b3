@@ -2,16 +2,19 @@
     margin: 0;
     padding: 0;
     font-family: sans-serif;
-    color: white;
+}
+body{
+    background-color: #d4d4d4;
 }
 nav{
     background-color: teal;
+    color: white;
     padding: 20px;
     display: flex;
     justify-content: space-between;
 }
 nav>ul{
-    width: 50%;
+    width: 40%;
     list-style: none;
     display: flex;
     justify-content: space-evenly;
@@ -24,4 +27,82 @@ nav>ul>li{
 }
 nav>ul>li:hover{
     background-color: rgb(183, 73, 0);
+}
+form{
+    margin: auto;
+    width: 80%;
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+label{
+    width: 50%;
+
+}
+.select_model{
+    width: 50%;
+    display: flex;
+    align-items: center;
+}
+select{
+    width: 50%;
+    height: 35px;
+}
+#searchPhone{
+    width: 300px;
+    height: 25px;
+}
+.container {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 40px; 
+    display: flex;
+    justify-content: space-between;
+}
+.left-box {
+    flex:1;
+    border-right: 1px solid #ccc;
+}
+.form-group {
+    padding: 10px;
+}
+input[type='text'],
+input[type='number'],
+select,
+textarea {
+    width: 90%;
+    padding: 10px;
+}
+select{
+    width: 97%;
+}
+button {
+    width: 100%;
+    padding: 10px;
+    cursor: pointer;
+    border: none;
+    background: teal;
+    font-size: 16px;
+    color: #fff;
+    text-transform: uppercase;
+}
+.user {
+    display: flex;
+    gap: 10px;
+}
+.right-box {
+    flex:2;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+thead {
+    background: teal;
+    color: #fff;
+}
+
+td, th {
+    border: 1px solid #ddd;
+    padding: 8px;
 }
