@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../css/stylepro.css">
     <script src="../js/product.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
+
 <body>
     <nav>
         <h2>B3-PHONE SHOP</h2>
@@ -17,5 +20,54 @@
             <li><a href="#"></a>Order</li>
         </ul>
     </nav>
+    <form>
+        <div class="select_model">
+            <label for="phone">Choose the phone model:</label>
+            <select name="phone" id="phone">
+                <option value="">All model</option>
+                <option value="">Iphone</option>
+                <option value="">Samsung</option>
+                <option value="">Vivo</option>
+                <option value="">Oppo</option>
+            </select>
+        </div>
+        <input type="text" id="searchPhone" value="" placeholder="Search phone">
+    </form>
+    <div class="container">
+        <div class="left-box">
+            <div class="form-group user">
+                <input type="text" placeholder="Model name" id="phone_model">
+            </div>
+            <div class="form-group">
+                <input type="number" placeholder="Price" id="price">
+            </div>
+            <div class="form-group">
+                <select name="" id="phone">
+                    <option value="Iphone">Iphone</option>
+                    <option value="Samsung">Samsung</option>
+                    <option value="Vivo">Vivo</option>
+                    <option value="Oppo">Oppo</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <button id="addPhone">Add phone</button>
+            </div>
+        </div>
+        <div class="right-box">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Product name</th>
+                        <th>Model</th>
+                        <th>Price</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
 </body>
+
 </html>
