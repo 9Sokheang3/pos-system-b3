@@ -1,16 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
-  // Get all delete buttons
-  var deleteButtons = document.querySelectorAll('.btnDelete');
 
-  // Add click event listener to each delete button
-  deleteButtons.forEach(function (button) {
-    button.addEventListener('click', function () {
-      // Find the closest parent <tr> element and remove it
-      var row = button.closest('tr');
-      row.remove();
-    });
-  });
-});
 document.addEventListener('DOMContentLoaded', function () {
   function AddPhone() {
     // create table row named tableRow
@@ -36,21 +24,39 @@ document.addEventListener('DOMContentLoaded', function () {
     tdPrice.textContent = Price.value + '$';
     let tdTypePhone = document.createElement('td');
     tdTypePhone.textContent = typePhone.value;
-    let btnDelete = document.createElement('i');
-    btnDelete.setAttribute('class', 'material-icons')
-    btnDelete.textContent = 'delete';
+
+    let btnDelete = document.createElement('button');
+    btnDelete.setAttribute('class', 'btnDelete')
+    btnDelete.textContent = 'Delete';
+    btnDelete.addEventListener('click', function () {
+      // Call a function to handle the row deletion
+      deleteRow(tableRow);
+      updateLocalStorage();
+    });
+    let btnEdit = document.createElement('button');
+    btnEdit.setAttribute('class', 'btnEdit')
+    btnEdit.textContent = 'Edit';
+    let btnDetail = document.createElement('button');
+    btnDetail.setAttribute('class', 'btnDetail')
+    btnDetail.textContent = 'Detail';
+    
+
 
     tableRow.appendChild(tdId);
     tableRow.appendChild(tdPhone);
     tableRow.appendChild(tdTypePhone);
     tableRow.appendChild(tdPrice);
+    tableRow.appendChild(btnDelete);
+    tableRow.appendChild(btnEdit);
+    tableRow.appendChild(btnDetail);
 
     // append tableRow to tbody
     tbody.appendChild(tableRow);
-    console.log(1);
+    
   }
-  // object = [];
-  // id = 0;
+  function deleteRow(row) {
+    row.remove();
+  }
 
   // Main
   const phoneModel = document.querySelector('#phone_model');
@@ -65,3 +71,4 @@ document.addEventListener('DOMContentLoaded', function () {
     AddPhone();
   });
 });
+
