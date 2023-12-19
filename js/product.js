@@ -1,50 +1,47 @@
 document.addEventListener('DOMContentLoaded', function () {
+  // Declare tbody in a scope accessible to both functions
   const tbody = document.querySelector('tbody');
-  const phoneModel = document.querySelector('#phone_model');
-  const Price = document.querySelector('#price');
-  const typePhone = document.querySelector('#phone');
-  const addButton = document.querySelector('#addPhone');
 
-  // Load data from local storage when the page loads
-  loadLocalStorageData();
-
-  addButton.addEventListener('click', function (e) {
-    e.preventDefault();
-    addPhone();
-  });
-
-  function addPhone() {
+  function AddPhone() {
     let tableRow = document.createElement('tr');
-    let maxId = 0;
 
+    let maxId = 0;
     for (let i = 0; i < tbody.children.length; i++) {
       let currentRow = tbody.children[i];
       let currentRowId = parseInt(currentRow.children[0].textContent);
-
       if (currentRowId > maxId) {
         maxId = currentRowId;
       }
     }
 
+    // Set the ID for the new row
     let tdId = document.createElement('td');
     tdId.textContent = maxId + 1;
 
     let tdPhone = document.createElement('td');
     tdPhone.textContent = phoneModel.value;
 
-    let tdTypePhone = document.createElement('td');
-    tdTypePhone.textContent = typePhone.value;
-
     let tdPrice = document.createElement('td');
     tdPrice.textContent = Price.value + '$';
 
-    let btnDelete = createButton('Delete', 'btnDelete', function () {
+    let tdTypePhone = document.createElement('td');
+    tdTypePhone.textContent = typePhone.value;
+
+    let btnDelete = document.createElement('button');
+    btnDelete.setAttribute('class', 'btnDelete');
+    btnDelete.textContent = 'Delete';
+    btnDelete.addEventListener('click', function () {
       deleteRow(tableRow);
       updateLocalStorage();
     });
 
-    let btnEdit = createButton('Edit', 'btnEdit');
-    let btnDetail = createButton('Detail', 'btnDetail');
+    let btnEdit = document.createElement('button');
+    btnEdit.setAttribute('class', 'btnEdit');
+    btnEdit.textContent = 'Edit';
+
+    let btnDetail = document.createElement('button');
+    btnDetail.setAttribute('class', 'btnDetail');
+    btnDetail.textContent = 'Detail';
 
     tableRow.appendChild(tdId);
     tableRow.appendChild(tdPhone);
@@ -54,7 +51,9 @@ document.addEventListener('DOMContentLoaded', function () {
     tableRow.appendChild(btnEdit);
     tableRow.appendChild(btnDetail);
 
+    // append tableRow to tbody
     tbody.appendChild(tableRow);
+
     updateLocalStorage();
   }
 
@@ -65,6 +64,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function updateLocalStorage() {
     const rows = tbody.children;
+
     const data = [];
 
     for (let i = 0; i < rows.length; i++) {
@@ -80,49 +80,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
     localStorage.setItem('phoneData', JSON.stringify(data));
   }
+  
+  // Main
+  const phoneModel = document.querySelector('#phone_model');
+  const Price = document.querySelector('#price');
+  const typePhone = document.querySelector('#phone');
+  console.log(typePhone.value);
+  const addButton = document.querySelector('#addPhone');
 
-  function loadLocalStorageData() {
-    const storedData = localStorage.getItem('phoneData');
-
-    if (storedData) {
-      const data = JSON.parse(storedData);
-
-      for (let i = 0; i < data.length; i++) {
-        let rowData = data[i];
-        let tableRow = document.createElement('tr');
-
-        for (let key in rowData) {
-          let td = document.createElement('td');
-          td.textContent = rowData[key];
-          tableRow.appendChild(td);
-        }
-
-        let btnDelete = createButton('Delete', 'btnDelete', function () {
-          deleteRow(tableRow);
-          updateLocalStorage();
-        });
-
-        let btnEdit = createButton('Edit', 'btnEdit');
-        let btnDetail = createButton('Detail', 'btnDetail');
-
-        tableRow.appendChild(btnDelete);
-        tableRow.appendChild(btnEdit);
-        tableRow.appendChild(btnDetail);
-
-        tbody.appendChild(tableRow);
-      }
-    }
-  }
-
-  function createButton(text, className, clickHandler) {
-    let button = document.createElement('button');
-    button.setAttribute('class', className);
-    button.textContent = text;
-
-    if (clickHandler) {
-      button.addEventListener('click', clickHandler);
-    }
-
-    return button;
-  }
+  addButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    AddPhone();
+  });
 });
+
+
+
