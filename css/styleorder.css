@@ -11,6 +11,8 @@ nav {
     display: flex;
     justify-content: space-between;
     color: white;
+    width: 100%;
+    position: fixed;
 }
 
 nav>ul {
@@ -38,13 +40,16 @@ main{
 .main-left{
     background:black;
     padding: 70px 0 0 20px;
-    height: 100vh;
+    height: 80vh;
+    position: fixed;
+    margin-top: 77px;
 }
 input {
     width: 300px;
     padding: 10px;
     margin: 10px;
     color: black;
+    border: none;
 }
 button {
     cursor: pointer;
@@ -57,13 +62,16 @@ button {
 h2{
     margin-left: 10px;
 }
+.qty{
+    width: 50px;
+}
 
 .main-right{
-    padding: 80px;
+    padding: 160px 0px 80px 480px;
 }
 
 table {
-    width: 100%;
+    width: 120vh;
     border-collapse: collapse;
 }
 thead {
@@ -76,5 +84,11 @@ td, th {
     padding: 8px;
 }
 td{
+    color: black;
+}
+#pop{
+    margin-top: 10vh;
+}
+span{
     color: black;
 }
