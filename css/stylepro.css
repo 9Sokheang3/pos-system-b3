@@ -28,6 +28,10 @@ nav>ul>li{
 nav>ul>li:hover{
     background-color: rgb(183, 73, 0);
 }
+nav>ul>li>a{
+    color: white;
+    text-decoration: none;
+}
 form{
     margin: auto;
     width: 80%;
