@@ -1,4 +1,5 @@
 
+
 let objects = ["we", 'er', 'gerg', 'gter', 'gerg']
 
 function setProsuct() {

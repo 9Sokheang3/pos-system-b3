@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 function saveProducts(){
     localStorage.setItem('productsData', JSON.stringify(productsData));
 }
@@ -95,3 +96,5 @@ let total = document.querySelector('.total');
  
 loadProducts()
 renderProducts();
+=======
+>>>>>>> b925c1f19460b503b95816a63b56a8a77679e0c2
