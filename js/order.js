@@ -105,11 +105,6 @@ function renderProducts() {
 
 
 }
- 
-let productsData = {
-    products: [],
-    latestId: null
-};
 
 const tbody = document.querySelector('tbody')
 let total = document.querySelector('.total');

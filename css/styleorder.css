@@ -51,6 +51,11 @@ button {
     background-color: rgb(55, 175, 55);
     color: white;
     margin: 10px;
+    width: 150px;
+    height: 40px;
+}
+h2{
+    margin-left: 10px;
 }
 
 .main-right{
@@ -69,4 +74,7 @@ thead {
 td, th {
     border: 1px solid #ddd;
     padding: 8px;
+}
+td{
+    color: black;
 }
