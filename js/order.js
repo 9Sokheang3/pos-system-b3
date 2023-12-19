@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 function saveProducts(){
     localStorage.setItem('productsData', JSON.stringify(productsData));
 }
@@ -37,32 +38,10 @@ function addProduct() {
     price.value = "";
 }
 
-const productName = document.querySelector('#product-name');
-const price = document.querySelector('#price');
-const quantity = document.querySelector('#qty');
-const btn = document.querySelector('button');
-
 let productsData = {
     products : [],
     latestId : null
 };
- 
-loadProducts()
-btn.addEventListener('click', addProduct);
-
-function saveProducts() {
-    localStorage.setItem('productsData', JSON.stringify(productsData));
-}
-
-function loadProducts() {
-    let loadProducts = JSON.parse(localStorage.getItem('productsData'));
-    if (loadProducts != undefined) {
-        productsData = loadProducts
-    }
-    else {
-        saveProducts()
-    }
-}
 
 function renderProducts() {
     loadProducts();
@@ -81,38 +60,41 @@ function renderProducts() {
         tdQty.dataset.id = product.id;
 
         let qtyInput = document.createElement("input");
-        // qtyInput.type = 'number';
         qtyInput.value = product.quantity;
         tdQty.appendChild(qtyInput);
-
+        
         let tdUnitPrice = document.createElement("td");
         tdUnitPrice.textContent = product.price + "$";
-
+        
         let tdTotalPrice = document.createElement("td");
         tdTotalPrice.textContent = (product.price * product.quantity) + "$";
-
+        
         tRow.appendChild(tdName);
         tRow.appendChild(tdQty);
         tRow.appendChild(tdUnitPrice);
         tRow.appendChild(tdTotalPrice);
-
+        
         tBody.appendChild(tRow);
-
+        
         let table = document.querySelector('table');
         table.appendChild(tBody);
-
+        
     });
-
-
+    
+    
 }
+const productName = document.querySelector('#product-name');
+const price = document.querySelector('#price');
+const quantity = document.querySelector('#qty');
+const btn = document.querySelector('button');
+
+btn.addEventListener('click', addProduct);
  
-let productsData = {
-    products: [],
-    latestId: null
-};
 
 const tbody = document.querySelector('tbody')
 let total = document.querySelector('.total');
  
 loadProducts()
 renderProducts();
+=======
+>>>>>>> b925c1f19460b503b95816a63b56a8a77679e0c2
