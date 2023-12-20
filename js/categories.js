@@ -1,4 +1,4 @@
-const searchMovieTitle = () => {
+const searchPhone = () => {
     let trs = document.querySelectorAll('tbody tr')
     let textsearch = search.value.toLowerCase()
     for (let t of trs) {
@@ -108,7 +108,7 @@ let queryData = localStorage.getItem('stocks');
 let table = document.querySelector('table');
 let input2 = document.querySelector('#book-id')
 const searchText = document.querySelector('#search');
-searchText.addEventListener('keyup', searchMovieTitle)
+searchText.addEventListener('keyup', searchPhone)
 
 if (queryData !== null) {
     stocks = JSON.parse(queryData)

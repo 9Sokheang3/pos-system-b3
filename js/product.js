@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const price = document.querySelector('#price');
   const typePhone = document.querySelector('#phone');
   const addButton = document.querySelector('#addPhone');
+  const searchProduct = document.querySelector('#searchPhone');
 
   // Load data from local storage when the page loads
   loadLocalStorageData();
@@ -161,4 +162,20 @@ document.addEventListener('DOMContentLoaded', function () {
       cell.appendChild(button);
     });
   }
+  const searchPhone = () => {
+    let tr = document.querySelectorAll('tbody tr');
+    let textsearch = searchProduct.value.toLowerCase();
+    for (let t of tr) {
+        let list = t.firstElementChild.nextElementSibling.textContent.toLowerCase()
+        if (list.includes(textsearch)) {
+            t.style.display = "blocked";
+        } else {
+            t.style.display = "none";
+        }
+        if(textsearch.length === 0){
+            window.location.reload()
+        }  
+    }
+}
+searchProduct.addEventListener('keyup', searchPhone);
 });
