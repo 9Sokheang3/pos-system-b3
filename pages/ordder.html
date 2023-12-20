@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../css/styleorder.css">
-    <script src="../js/order.js"></script>
+    <script src="../js/order.js" defer></script>
 </head>
 <body>
     <nav>
@@ -20,7 +20,7 @@
     </nav>
     <main>
         <div class="main-left">
-            <h1>Order Here</h1>
+            <h2>Order Here</h2>
             <input type="text" placeholder="Product Name" id="product-name"><br>
             <input type="number" placeholder="Quantity" id="qty"><br>
             <input type="number" placeholder="Price" id="price"><br>
@@ -40,12 +40,10 @@
                     <span></span>
                 </tbody>
             </table>
+        <div id="pop">
+            <h1><span>Total: </span><span class="total">0</span></h1>
         </div>
     </main>
-    <div class="result">
-        <h1><span>Total: </span><span class="total">0</span></h1>
-        <button>BUY NOW</button>
-    </div>
 </body>
 
 </html>
