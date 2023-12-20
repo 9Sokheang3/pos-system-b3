@@ -1,6 +1,21 @@
+const searchMovieTitle = () => {
+    let trs = document.querySelectorAll('tbody tr')
+    let textsearch = search.value.toLowerCase()
+    for (let t of trs) {
+        let list = t.firstElementChild.nextElementSibling.textContent.toLowerCase()
+        if (list.includes(textsearch)) {
+            t.style.display = "blocked";
+        } else {
+            t.style.display = "none";
+        }
+        if(textsearch.length === 0){
+            window.location.reload()
+        }  
+    }
+}
 
 function addCategory() {
-    if (input.value === '') {
+    if (input.value === '' ) {
         return alert('please enter a Category');
     }
     let uniqueId = localStorage.getItem('id');
@@ -56,14 +71,12 @@ function getCategory() {
         tbody.appendChild(tr);
     }
 }
-
 function deleteCategory(event){
     let index = event.target.closest('tr').dataset.index;
     stocks.splice(index, 1)
     getCategory();
     localStorage.setItem('stocks', JSON.stringify(stocks));
 }
-
 function editeCategory(event) {
     btnadd.className = 'hide';
     btnUpdate.className = "show";
@@ -73,31 +86,19 @@ function editeCategory(event) {
     input2.value = stocks[index].title;
     local = index;
 }
-
 function updateCategory() {
     btnadd.className = 'hide';
     btnUpdate.className = "show";
     stocks[local].title = input2.value ;
-    getCategory();
+
     btnadd.className = 'show';  
     btnUpdate.className = "hide";
+    input.type =''
+    input2.type = 'hidden'
     localStorage.setItem('stocks', JSON.stringify(stocks));
     addCategory()
+    getCategory();
 }
-
-const searchMovieTitle = () => {
-    let textsearch = search.value.toLowerCase()
-    for (let t of tr) {
-        let list = t.firstElementChild.nextElementSibling.textContent.toLowerCase()
-        if (list.includes(textsearch)) {
-            t.style.display = "";
-        } else {
-            t.style.display = "none";
-        }
-    }
-}
-let trs = document.querySelectorAll('tr')
-console.log(trs);
 let local;
 let stocks = [];
 let btnadd = document.querySelector('#add');
