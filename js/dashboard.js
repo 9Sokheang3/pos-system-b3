@@ -1,7 +1,11 @@
 
 
 function setProsuct() {
-    let objects = ["we", 'er', 'gerg', 'gter', 'gerg']
+    let objects = [{id:1,nameProduct:"Iphone 12 Pro Max", price:"1200$", category:"Iphone",amcount:15},
+                    {id:2,nameProduct:"Galaxy S23 Ultra", price:"900$", category:"Samsung",amcount:13}, 
+                    {id:3,nameProduct:"Iphone X", price:"850$", category:"Iphone",amcount:10},
+                    {id:4,nameProduct:"Vivo V27", price:"390$", category:"Vivo",amcount:8},
+                    {id:5,nameProduct:"Oppo Reno10", price:"400$", category:"Oppo",amcount:3}]
         let tbody = document.querySelector("tbody");
         // tbody.remove()
         // tbody.document.createElement('tbody')
@@ -20,12 +24,12 @@ function setProsuct() {
             let arrow2 = document.createElement('i');
             arrow2.className ="material-icons"
             arrow2.textContent = "arrow_upward"
-    
-            tdid.textContent = 1+1
-            tdName.textContent = '1234567'
-            tdPrice.textContent = object
-            tdAmcount.textContent = '1234567'
-            tdCategory.textContent = '1234567'
+
+            tdid.textContent = object.id
+            tdName.textContent = object.nameProduct
+            tdAmcount.textContent = object.amcount
+            tdCategory.textContent = object.price
+            tdPrice.textContent = object.category
     
             if (sell == 0) {
                 tdProgrees.appendChild(arrow1)

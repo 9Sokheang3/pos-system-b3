@@ -34,7 +34,8 @@ nav>ul>li>a{
 }
 h1 {
     color: orangered;
-    margin-left: 43%;
+    display: flex;
+    justify-content: center;
 }
 
 main {
