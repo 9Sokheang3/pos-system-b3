@@ -1,3 +1,4 @@
+
 function addCategory() {
     if (input.value === '') {
         return alert('please enter a Category');

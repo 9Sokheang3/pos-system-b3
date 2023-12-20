@@ -1,3 +1,4 @@
+
 function saveProducts() {
     localStorage.setItem('productsData', JSON.stringify(productsData));
   }
@@ -93,4 +94,3 @@ let total = document.querySelector('.total');
   
   loadProducts();
   renderProducts();
-  localStorage.clear()
