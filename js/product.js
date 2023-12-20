@@ -1,72 +1,113 @@
 document.addEventListener('DOMContentLoaded', function () {
   const tbody = document.querySelector('tbody');
   const phoneModel = document.querySelector('#phone_model');
-  const Price = document.querySelector('#price');
+  const price = document.querySelector('#price');
   const typePhone = document.querySelector('#phone');
   const addButton = document.querySelector('#addPhone');
+
   // Load data from local storage when the page loads
   loadLocalStorageData();
-  
+
+  // Event listener for adding a new phone
   addButton.addEventListener('click', function (e) {
     e.preventDefault();
     addPhone();
   });
-  
+
+  // Function to add a new phone to the table
   function addPhone() {
     let tableRow = document.createElement('tr');
-    let maxId = 0;
-    
-    for (let i = 0; i < tbody.children.length; i++) {
-      let currentRow = tbody.children[i];
-      let currentRowId = parseInt(currentRow.children[0].textContent);
-      
-      if (currentRowId > maxId) {
-        maxId = currentRowId;
-      }
-    }
-    
-    let tdId = document.createElement('td');
-    tdId.textContent = maxId + 1;
-    
-    let tdPhone = document.createElement('td');
-    tdPhone.textContent = phoneModel.value;
-    
-    let tdTypePhone = document.createElement('td');
-    tdTypePhone.textContent = typePhone.value;
-    
-    let tdPrice = document.createElement('td');
-    tdPrice.textContent = Price.value + '$';
-    
-    let tdAction = document.createElement('td');
+    let maxId = getMaxId();
 
+    // Create table cells
+    let tdId = createTableCell(maxId + 1);
+    let tdPhone = createTableCell(phoneModel.value);
+    let tdTypePhone = createTableCell(typePhone.value);
+    let tdPrice = createTableCell(`${price.value}$`);
+    let tdAction = createTableCell();
 
+    // Create action buttons
     let btnDelete = createButton('Delete', 'btnDelete', function () {
       deleteRow(tableRow);
       updateLocalStorage();
     });
-
     let btnEdit = createButton('Edit', 'btnEdit');
     let btnDetail = createButton('Detail', 'btnDetail');
 
-    tableRow.appendChild(tdId);
-    tableRow.appendChild(tdPhone);
-    tableRow.appendChild(tdTypePhone);
-    tableRow.appendChild(tdPrice);
-    tdAction.appendChild(btnDelete);
-    tdAction.appendChild(btnEdit);
-    tdAction.appendChild(btnDetail);
-    tableRow.appendChild(tdAction);
-    
+    // Append cells and buttons to the row
+    appendCellsToRow(tableRow, [tdId, tdPhone, tdTypePhone, tdPrice, tdAction]);
+    appendButtonsToCell(tdAction, [btnDelete, btnEdit, btnDetail]);
+
+    // Append the row to the table body
     tbody.appendChild(tableRow);
+
+    // Update local storage
     updateLocalStorage();
   }
 
+  // Function to delete a row
   function deleteRow(row) {
     row.remove();
     updateLocalStorage();
   }
 
+  // Function to update local storage with current table data
   function updateLocalStorage() {
+    const data = getTableData();
+    localStorage.setItem('phoneData', JSON.stringify(data));
+  }
+
+  // Function to load data from local storage and populate the table
+  function loadLocalStorageData() {
+    const storedData = localStorage.getItem('phoneData');
+
+    if (storedData) {
+      const data = JSON.parse(storedData);
+      data.forEach((rowData) => {
+        let tableRow = createTableRow(rowData);
+        tbody.appendChild(tableRow);
+      });
+    }
+  }
+
+  // Function to create a button element
+  function createButton(text, className, clickHandler) {
+    let button = document.createElement('button');
+    button.setAttribute('class', className);
+    button.textContent = text;
+
+    if (clickHandler) {
+      button.addEventListener('click', clickHandler);
+    }
+
+    return button;
+  }
+
+  // Function to create a table cell element
+  function createTableCell(text = '') {
+    let td = document.createElement('td');
+    td.textContent = text;
+    return td;
+  }
+
+  // Function to get the maximum ID from the existing rows
+  function getMaxId() {
+    let maxId = 0;
+
+    for (let i = 0; i < tbody.children.length; i++) {
+      let currentRow = tbody.children[i];
+      let currentRowId = parseInt(currentRow.children[0].textContent);
+
+      if (currentRowId > maxId) {
+        maxId = currentRowId;
+      }
+    }
+
+    return maxId;
+  }
+
+  // Function to get the data from the table
+  function getTableData() {
     const rows = tbody.children;
     const data = [];
 
@@ -81,51 +122,43 @@ document.addEventListener('DOMContentLoaded', function () {
       data.push(rowData);
     }
 
-    localStorage.setItem('phoneData', JSON.stringify(data));
+    return data;
   }
 
-  function loadLocalStorageData() {
-    const storedData = localStorage.getItem('phoneData');
+  // Function to create a table row element from given data
+  function createTableRow(rowData) {
+    let tableRow = document.createElement('tr');
 
-    if (storedData) {
-      const data = JSON.parse(storedData);
-
-      for (let i = 0; i < data.length; i++) {
-        let rowData = data[i];
-        let tableRow = document.createElement('tr');
-
-        for (let key in rowData) {
-          let td = document.createElement('td');
-          td.textContent = rowData[key];
-          tableRow.appendChild(td);
-        }
-
-        let btnDelete = createButton('Delete', 'btnDelete', function () {
-          deleteRow(tableRow);
-          updateLocalStorage();
-        });
-
-        let btnEdit = createButton('Edit', 'btnEdit');
-        let btnDetail = createButton('Detail', 'btnDetail');
-
-        tableRow.appendChild(btnDelete);
-        tableRow.appendChild(btnEdit);
-        tableRow.appendChild(btnDetail);
-
-        tbody.appendChild(tableRow);
-      }
+    for (let key in rowData) {
+      let td = createTableCell(rowData[key]);
+      tableRow.appendChild(td);
     }
+
+    let tdAction = createTableCell();
+    let btnDelete = createButton('Delete', 'btnDelete', function () {
+      deleteRow(tableRow);
+      updateLocalStorage();
+    });
+    let btnEdit = createButton('Edit', 'btnEdit');
+    let btnDetail = createButton('Detail', 'btnDetail');
+
+    appendButtonsToCell(tdAction, [btnDelete, btnEdit, btnDetail]);
+    tableRow.appendChild(tdAction);
+
+    return tableRow;
   }
 
-  function createButton(text, className, clickHandler) {
-    let button = document.createElement('button');
-    button.setAttribute('class', className);
-    button.textContent = text;
+  // Function to append an array of cells to a row
+  function appendCellsToRow(row, cells) {
+    cells.forEach((cell) => {
+      row.appendChild(cell);
+    });
+  }
 
-    if (clickHandler) {
-      button.addEventListener('click', clickHandler);
-    }
-
-    return button;
+  // Function to append an array of buttons to a cell
+  function appendButtonsToCell(cell, buttons) {
+    buttons.forEach((button) => {
+      cell.appendChild(button);
+    });
   }
 });
