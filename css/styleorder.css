@@ -11,6 +11,8 @@ nav {
     display: flex;
     justify-content: space-between;
     color: white;
+    width: 100%;
+    position: fixed;
 }
 
 nav>ul {
@@ -38,8 +40,10 @@ main{
 .main-left{
     background:black;
     padding: 70px 0 0 20px;
+    height: 80vh;
+    position: fixed;
+    margin-top: 77px;
     height: 100vh;
-
 }
 input {
     width: 300px;
@@ -54,16 +58,24 @@ button {
     background-color: rgb(55, 175, 55);
     color: white;
     margin: 10px;
+    width: 150px;
+    height: 40px;
+}
+h2{
+    margin-left: 10px;
+}
+.qty{
+    width: 50px;
     height: 50px;
     width: 100px;
 }
 
 .main-right{
-    padding: 80px;
+    padding: 160px 0px 80px 480px;
 }
 
 table {
-    width: 100%;
+    width: 120vh;
     border-collapse: collapse;
 }
 thead {
@@ -75,6 +87,12 @@ td, th {
     border: 1px solid #ddd;
     padding: 8px;
 }
-.result{
-    background-color: blue;
+td{
+    color: black;
+}
+#pop{
+    margin-top: 10vh;
+}
+span{
+    color: black;
 }
